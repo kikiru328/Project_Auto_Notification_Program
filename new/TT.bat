@@ -1,0 +1,1 @@
+"D:\Tools\Anaconda3\python.exe" "D:\CAKD3\Workspace\Lazy_project\AUTO_attendence_CHECK_Program\new\TT.py"
