@@ -4,23 +4,23 @@
 # In[1]:
 
 
-import warnings
-warnings.filterwarnings('ignore')
-try:
-    import schedule
-    import time
-    import pyautogui
-    import tkinter as tk
-    from tkinter import filedialog
-    import os
-    import datetime as dt
-    from tkinter import ttk
-    import webbrowser 
-except ImportError:
-    from pip._internal import main as pip
-    pip(['install', '--user', 'schedule','pyautogui'])
-    import schedule
-    import pyautogui
+# import warnings
+# warnings.filterwarnings('ignore')
+# try:
+#     import schedule
+#     import time
+#     import pyautogui
+#     import tkinter as tk
+#     from tkinter import filedialog
+#     import os
+#     import datetime as dt
+#     from tkinter import ttk
+#     import webbrowser 
+# except ImportError:
+#     from pip._internal import main as pip
+#     pip(['install', '--user', 'schedule','pyautogui'])
+#     import schedule
+#     import pyautogui
 
 
 # In[2]:
@@ -39,7 +39,7 @@ from tkinter import ttk
 import webbrowser
 
 
-# In[3]:
+# In[13]:
 
 
 def notification():
@@ -111,8 +111,8 @@ def magic():
 #             file_path = filedialog.saveasfilename(initialdir='C:/workspace/',initialfile = f"화면 캡처 {now}시", defaultextension='.png')
         #     file_path = filedialog.asksaveasfilename(initialdir='C:/workspace/', title='Save File', filetypes=(('png Files', 'png.*'), ('All Files', '*.*')))
 
-            myScreenshot.save(f'C:\화면 캡처 {now}시.png') # directory 변경
-            os.startfile('C:/') # dorectory 변경
+            myScreenshot.save(f'C:\Workspace\ 화면 캡처 {now}시.png') # directory 변경
+            os.startfile(r'C:\Workspace')
             webbrowser.open_new_tab("https://drive.google.com/drive/folders/1SgyRIMz4sqFhLcaGUY9RF04eNpTtlCKC")
 
 
@@ -142,7 +142,13 @@ def QR():
     
 
 
-# In[ ]:
+# In[14]:
+
+
+magic()
+
+
+# In[7]:
 
 
 #QR
@@ -198,13 +204,13 @@ schedule.every().day.at("16:49:57").do(notification)
 
 
 
-##TEST
-schedule.every().day.at("00:58:00").do(QR)
-schedule.every().day.at("00:58:30").do(check)
-schedule.every().day.at("00:59:00").do(notification)
-schedule.every().day.at("00:59:30").do(lunch)
-schedule.every().day.at("01:00:00").do(capture)
-schedule.every().day.at("01:25:00").do(magic)
+# ##TEST
+# schedule.every().day.at("00:35:00").do(QR)
+# schedule.every().day.at("00:35:30").do(check)
+# schedule.every().day.at("00:36:00").do(notification)
+# schedule.every().day.at("00:36:30").do(lunch)
+# schedule.every().day.at("00:37:00").do(capture)
+# schedule.every().day.at("01:15:30").do(magic)
 
 
 while True:

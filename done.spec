@@ -4,8 +4,8 @@
 block_cipher = None
 
 
-a = Analysis(['done2.py'],
-             pathex=['D:\\CAKD3\\Workspace\\Lazy_project\\AUTO_attendence_CHECK_Program'],
+a = Analysis(['done.py'],
+             pathex=['C:\\Workspace\\CAKD3-Github\\-Projects\\Lazy_project\\AUTO_attendence_CHECK_Program'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -26,7 +26,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,  
           [],
-          name='done2',
+          name='done',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -37,4 +37,4 @@ exe = EXE(pyz,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None )
+          entitlements_file=None , uac_admin=True)
