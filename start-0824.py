@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 # module import
@@ -13,14 +13,25 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 import datetime as dt
-from tkinter import ttk
 import webbrowser
 
 
-# In[7]:
+# In[18]:
 
 
-def notification():
+def programe_start():
+    from plyer import notification
+    if __name__ == "__main__":
+        notification.notify(
+        title = "프로그램 실행!",
+        message = "자동 알림 프로그램 실행완료.",
+        app_name = 'CAKD3',
+        app_icon= 'emoji.ico',
+        timeout = 5)
+    return
+
+
+def break_time():
     from plyer import notification
     if __name__ == "__main__":
         notification.notify(
@@ -49,7 +60,7 @@ def check():
     if __name__ == "__main__":
         notification.notify(
         title = "신호출결!",
-        message = "신호출결할 시간입니다.",
+        message = "<14:00 - 14:48> 중 랜덤으로\n<1회> 신호출결이 진행됩니다",
         app_name = 'CAKD3',
         app_icon= 'check.ico',
         timeout = 5)
@@ -57,7 +68,7 @@ def check():
 
 
 
-def start():
+def class_start():
     from plyer import notification
     if __name__ == "__main__":
         notification.notify(
@@ -69,49 +80,6 @@ def start():
     return
 
 
-
-
-
-
-# def magic():
-#     if __name__ == '__main__':
-#         root = tk.Tk()
-#         root.title("마법사..랄까?")
-#         root.geometry("250x100+100+900")
-#         canvas1 = tk.Canvas(root,width=300,height=50)
-
-#         canvas1.pack()
-
-#         def takeScreenshot():
-#             myScreenshot = pyautogui.screenshot()
-#             now = dt.datetime.now().strftime("%Y-%m-%d %H")
-
-# #             file_path = filedialog.saveasfilename(initialdir='C:/workspace/',initialfile = f"화면 캡처 {now}시", defaultextension='.png')
-#         #     file_path = filedialog.asksaveasfilename(initialdir='C:/workspace/', title='Save File', filetypes=(('png Files', 'png.*'), ('All Files', '*.*')))
-
-#             myScreenshot.save(f'C:\Workspace\ 화면 캡처 {now}시.png') # directory 변경
-#             os.startfile(r'C:\Workspace')
-#             webbrowser.open_new_tab("https://drive.google.com/drive/folders/1SgyRIMz4sqFhLcaGUY9RF04eNpTtlCKC")
-
-
-#         myButton = tk.Button(text="캡처",command=takeScreenshot,bg='skyblue',fg='black',font=20, height = 2 , width = 10, compound='c')
-        
-# #         canvas1.create_window(125,20,window=myButton)
-#         canvas1.create_window(125,20,window=myButton)
-# #         myButton1 = tk.Button(text="저장폴더열기",command=open_folder,bg='lightblue',fg='black',font=10)    
-# #         canvas1.create_window(200,20,window=myButton1)    
- 
-#         label = ttk.Label(text = "버튼을 누르시면 전체화면 캡처가 저장되고\n저장폴더와 화면캡쳐 드라이브가 열립니다.",
-#                          padding = (0,0))
-        
-#         label.pack()
-            
-
-
-#         root.mainloop()
-
-
-
 def QR():
     from PIL import Image
     if __name__ == '__main__':
@@ -120,48 +88,52 @@ def QR():
     
 
 
-# In[8]:
-
-
-start()
-
-
 # In[7]:
 
 
+#checking
+programe_start()
+schedule.every().day.at("09:28:00").do(QR)
+
 #QR
 schedule.every().day.at("08:50:00").do(QR)
-schedule.every().day.at("09:00:00").do(start)
-schedule.every().day.at("09:49:57").do(notification)
+schedule.every().day.at("09:00:00").do(class_start)
+schedule.every().day.at("09:49:57").do(break_time)
 
-schedule.every().day.at("10:00:00").do(start)
-schedule.every().day.at("10:49:57").do(notification)
-
-
-schedule.every().day.at("11:00:00").do(start)
-schedule.every().day.at("11:49:57").do(notification)
+schedule.every().day.at("10:00:00").do(class_start)
+schedule.every().day.at("10:49:57").do(break_time)
 
 
-schedule.every().day.at("12:00:00").do(start)
+schedule.every().day.at("11:00:00").do(class_start)
+schedule.every().day.at("11:49:57").do(break_time)
+
+
+schedule.every().day.at("12:00:00").do(class_start)
 schedule.every().day.at("12:49:55").do(lunch)
 
-
-schedule.every().day.at("14:00:00").do(start)
-schedule.every().day.at("14:49:57").do(notification)
-
-
-schedule.every().day.at("14:59:57").do(check)
-schedule.every().day.at("15:49:57").do(notification)
+schedule.every().day.at("13:59:55").do(check)
+schedule.every().day.at("14:00:00").do(class_start)
+schedule.every().day.at("14:49:57").do(break_time)
 
 
-schedule.every().day.at("16:00:00").do(start)
-schedule.every().day.at("16:49:57").do(notification)
+schedule.every().day.at("14:59:57").do(class_start)
+schedule.every().day.at("15:49:57").do(break_time)
 
 
-schedule.every().day.at("17:00:00").do(start)
+schedule.every().day.at("16:00:00").do(class_start)
+schedule.every().day.at("16:49:57").do(break_time)
+
+
+schedule.every().day.at("17:00:00").do(class_start)
 schedule.every().day.at("17:50:00").do(QR)
 
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+
+# In[ ]:
+
+
+
 
